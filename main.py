@@ -1,6 +1,7 @@
 from turtle import Turtle, Screen
 from player import Player_1, Player_2
 from ball import Ball
+from field import Score_1, Score_2
 import time
 
 GAME_IS_ON = True
@@ -24,6 +25,8 @@ screen.onkeypress(key="w", fun=player_2.move_up)
 screen.onkeypress(key="s", fun=player_2.move_down)
 
 
+score_player_1 = Score_1()
+score_player_2 = Score_2()
 
 
 
