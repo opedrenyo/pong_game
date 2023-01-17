@@ -3,6 +3,7 @@ from turtle import Turtle
 PLAYER_INITIAL_POSITION = [(0, 50), (0, 30), (0, 10), (0, -10), (0, -30)]
 PLAYER_1_XCOR = -550
 PLAYER_2_XCOR = 550
+SPEED = 20
 
 
 class Player(Turtle):
@@ -28,14 +29,14 @@ class Player(Turtle):
         for seg in range(self.length-1, 0, -1):
             new_position = self.player[seg-1].position()
             self.player[seg].goto(new_position)
-        self.upside.forward(15)
+        self.upside.forward(SPEED)
         
     def move_down(self):
         for seg in range(0, self.length-1):
             new_position = self.player[seg+1].position()
             self.player[seg].goto(new_position)
         self.downside.setheading(270)
-        self.downside.forward(15)
+        self.downside.forward(SPEED)
 
 class Player_1(Player):
     def __init__(self):
