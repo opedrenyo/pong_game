@@ -11,7 +11,7 @@ class Ball(Turtle):
         self.color("white")
         self.up()
         self.setheading(random.choice(INITIAL_RANDOM_MOVEMENT))
-        self.speed = 8
+        self.speed = 5
     
     def move(self):
         self.forward(self.speed)

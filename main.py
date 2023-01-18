@@ -5,7 +5,9 @@ from score import Score
 from midfield import Midfield
 import time
 
+
 NOT_SCORE = True
+BALL_DISTANCE = 14
 
 screen = Screen()
 screen.setup(width=1200, height = 800)
@@ -31,40 +33,44 @@ screen.onkeypress(key="Return", fun=ball.move)
 
 while NOT_SCORE:
     screen.update()
-    time.sleep(0.01)
+    time.sleep(0.001)
     ball.move()
     if ball.ycor() >= 385 or ball.ycor() <= -385:
         ball.wall_colission()
     if ball.xcor() >= 595:
         ball.goal()
+        ball.speed = 5
         score_player_1.increase()
+        player_1.players_after_goal()
+        player_2.players_after_goal()
         screen.update()
         time.sleep(2)
     elif ball.xcor() <= -595:
         ball.goal()
+        ball.speed = 5
         score_player_2.increase()
+        player_1.players_after_goal()
+        player_2.players_after_goal()
         screen.update()
         time.sleep(2)
 
-    elif ball.distance(player_1.top_b) < 15:
+    elif ball.distance(player_1.top_b) < BALL_DISTANCE:
         ball.topside_player_collission()
         ball.increase_speed()
-    elif ball.distance(player_1.bot_b) < 15:
+    elif ball.distance(player_1.bot_b) < BALL_DISTANCE:
         ball.botside_player_collission()
         ball.increase_speed()
-    elif ball.distance(player_1.second_b) < 15 or ball.distance(player_1.third_b) < 15 or ball.distance(player_1.fourth_b) < 15:
+    elif ball.distance(player_1.second_b) < BALL_DISTANCE or ball.distance(player_1.third_b) < BALL_DISTANCE or ball.distance(player_1.fourth_b) < BALL_DISTANCE:
         ball.mid_player_colission()
         ball.increase_speed()
-    elif ball.distance(player_2.top_b) < 15:
+    elif ball.distance(player_2.top_b) < BALL_DISTANCE:
         ball.topside_player_collission()
         ball.increase_speed()
-    elif ball.distance(player_2.bot_b) < 15:
+    elif ball.distance(player_2.bot_b) < BALL_DISTANCE:
         ball.botside_player_collission()
         ball.increase_speed()
-    elif ball.distance(player_2.second_b) < 15 or ball.distance(player_2.third_b) < 15 or ball.distance(player_2.fourth_b) < 15:
+    elif ball.distance(player_2.second_b) < BALL_DISTANCE or ball.distance(player_2.third_b) < BALL_DISTANCE or ball.distance(player_2.fourth_b) < BALL_DISTANCE:
         ball.mid_player_colission()
         ball.increase_speed()
-
-    print(ball.speed)
 
 screen.exitonclick()

@@ -12,6 +12,7 @@ class Player(Turtle):
         self.name = name
         self.player = []
         self.create_new_player()
+        self.player_ycor = 50
         self.top_b = self.player[0]
         self.second_b = self.player[1]
         self.third_b = self.player[2]
@@ -48,11 +49,18 @@ class Player(Turtle):
 
     def set_player_1(self):
         for seg in self.player:
-            seg.setx(-550)
+            seg.setx(PLAYER_1_XCOR)
+            
 
     def set_player_2(self):
         for seg in self.player:
-            seg.setx(550)
+            seg.setx(PLAYER_2_XCOR)
+
+    def players_after_goal(self):
+        for seg in self.player:
+            seg.sety(self.player_ycor)
+            self.player_ycor -= 20
+
         
             
 
