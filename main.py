@@ -1,7 +1,7 @@
 from turtle import Turtle, Screen
 from player import Player_1, Player_2
 from ball import Ball
-from field import Score_1, Score_2
+from field import Score_1, Score_2, Midfield
 import time
 
 GAME_IS_ON = True
@@ -16,6 +16,7 @@ screen.tracer(0)
 player_1 = Player_1()
 player_2 = Player_2()
 ball = Ball()
+midfield = Midfield()
 
 
 screen.listen()

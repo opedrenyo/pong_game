@@ -22,19 +22,3 @@ class Score_2(Score):
         super().__init__()
         self.goto(x = 150, y = 300)
         self.write(arg=self.score, align="center", font=("calibri",50,"bold"))
-
-class Midfield(Turtle):
-    def __init__(self):
-        super().__init__()
-        self.up()
-        self.color("white")
-        self.shape("square")
-        self.shapesize(0.3)
-        self.goto(x = 0, y = 360)
-
-    def set_midfield(self):
-        for seg in 
-
-
-
-

@@ -32,9 +32,5 @@ class Midfield(Turtle):
         self.shapesize(0.3)
         self.goto(x = 0, y = 360)
 
-    def set_midfield(self):
-        for seg in 
-
-
 
 
