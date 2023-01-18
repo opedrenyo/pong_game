@@ -2,7 +2,7 @@ from turtle import Turtle
 import random
 
 INITIAL_RANDOM_MOVEMENT = [45, 135, 225, 315]
-SPEED = 10
+
 
 class Ball(Turtle):
     def __init__(self):
@@ -11,9 +11,10 @@ class Ball(Turtle):
         self.color("white")
         self.up()
         self.setheading(random.choice(INITIAL_RANDOM_MOVEMENT))
+        self.speed = 8
     
     def move(self):
-        self.forward(SPEED)
+        self.forward(self.speed)
 
     def wall_colission(self):
         if self.heading() == 45:
@@ -58,3 +59,6 @@ class Ball(Turtle):
     def goal(self):
         self.home()
         self.setheading(random.choice(INITIAL_RANDOM_MOVEMENT))
+
+    def increase_speed(self):
+        self.speed *= 1.05 

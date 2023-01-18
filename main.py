@@ -7,7 +7,6 @@ import time
 
 NOT_SCORE = True
 
-
 screen = Screen()
 screen.setup(width=1200, height = 800)
 screen.bgcolor("black")
@@ -49,16 +48,23 @@ while NOT_SCORE:
 
     elif ball.distance(player_1.top_b) < 15:
         ball.topside_player_collission()
+        ball.increase_speed()
     elif ball.distance(player_1.bot_b) < 15:
         ball.botside_player_collission()
+        ball.increase_speed()
     elif ball.distance(player_1.second_b) < 15 or ball.distance(player_1.third_b) < 15 or ball.distance(player_1.fourth_b) < 15:
         ball.mid_player_colission()
+        ball.increase_speed()
     elif ball.distance(player_2.top_b) < 15:
         ball.topside_player_collission()
+        ball.increase_speed()
     elif ball.distance(player_2.bot_b) < 15:
         ball.botside_player_collission()
+        ball.increase_speed()
     elif ball.distance(player_2.second_b) < 15 or ball.distance(player_2.third_b) < 15 or ball.distance(player_2.fourth_b) < 15:
         ball.mid_player_colission()
-    
+        ball.increase_speed()
+
+    print(ball.speed)
 
 screen.exitonclick()
