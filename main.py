@@ -1,7 +1,8 @@
 from turtle import Turtle, Screen
-from player import Player_1, Player_2
+from player import Player
 from ball import Ball
-from field import Score_1, Score_2, Midfield
+from score import Score
+from midfield import Midfield
 import time
 
 GAME_IS_ON = True
@@ -13,8 +14,8 @@ screen.bgcolor("black")
 screen.title("PONG GAME")
 screen.tracer(0)
 
-player_1 = Player_1()
-player_2 = Player_2()
+player_1 = Player("player_1")
+player_2 = Player("player_2")
 ball = Ball()
 midfield = Midfield()
 
@@ -26,8 +27,8 @@ screen.onkeypress(key="w", fun=player_2.move_up)
 screen.onkeypress(key="s", fun=player_2.move_down)
 
 
-score_player_1 = Score_1()
-score_player_2 = Score_2()
+score_player_1 = Score("Score_1")
+score_player_2 = Score("Score_2")
 
 
 

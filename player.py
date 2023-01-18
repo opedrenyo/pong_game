@@ -7,14 +7,19 @@ SPEED = 20
 
 
 class Player(Turtle):
-    def __init__(self):
+    def __init__(self, name):
         super().__init__()
+        self.name = name
         self.player = []
         self.create_new_player()
         self.upside = self.player[0]
         self.length = len(self.player)
         self.downside = self.player[-1]
-        print(self.player)
+
+        if self.name == "player_1":
+            self.set_player_1()
+        elif self.name == "player_2":
+            self.set_player_2()
 
     def create_new_player(self):
         for position in PLAYER_INITIAL_POSITION:
@@ -38,19 +43,9 @@ class Player(Turtle):
         self.downside.setheading(270)
         self.downside.forward(SPEED)
 
-class Player_1(Player):
-    def __init__(self):
-        super().__init__()
-        self.set_player_1()
-
     def set_player_1(self):
         for seg in self.player:
             seg.setx(-550)
-
-class Player_2(Player):
-    def __init__(self):
-        super().__init__()
-        self.set_player_2()
 
     def set_player_2(self):
         for seg in self.player:
