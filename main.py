@@ -16,9 +16,10 @@ screen.tracer(0)
 
 player_1 = Player("player_1")
 player_2 = Player("player_2")
-
 midfield = Midfield()
 ball = Ball()
+score_player_1 = Score("Score_1")
+score_player_2 = Score("Score_2")
 
 
 screen.listen()
@@ -27,11 +28,6 @@ screen.onkeypress(key= "Down", fun=player_1.move_down)
 screen.onkeypress(key="w", fun=player_2.move_up)
 screen.onkeypress(key="s", fun=player_2.move_down)
 screen.onkeypress(key="Return", fun=ball.move)
-
-
-score_player_1 = Score("Score_1")
-score_player_2 = Score("Score_2")
-
 
 
 while NOT_SCORE:
@@ -64,6 +60,5 @@ while NOT_SCORE:
     elif ball.distance(player_2.second_b) < 15 or ball.distance(player_2.third_b) < 15 or ball.distance(player_2.fourth_b) < 15:
         ball.mid_player_colission()
     
-
 
 screen.exitonclick()
