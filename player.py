@@ -12,9 +12,12 @@ class Player(Turtle):
         self.name = name
         self.player = []
         self.create_new_player()
-        self.upside = self.player[0]
+        self.top_b = self.player[0]
+        self.second_b = self.player[1]
+        self.third_b = self.player[2]
+        self.fourth_b = self.player[3]
+        self.bot_b = self.player[4]
         self.length = len(self.player)
-        self.downside = self.player[-1]
 
         if self.name == "player_1":
             self.set_player_1()
@@ -34,14 +37,14 @@ class Player(Turtle):
         for seg in range(self.length-1, 0, -1):
             new_position = self.player[seg-1].position()
             self.player[seg].goto(new_position)
-        self.upside.forward(SPEED)
+        self.top_b.forward(SPEED)
         
     def move_down(self):
         for seg in range(0, self.length-1):
             new_position = self.player[seg+1].position()
             self.player[seg].goto(new_position)
-        self.downside.setheading(270)
-        self.downside.forward(SPEED)
+        self.bot_b.setheading(270)
+        self.bot_b.forward(SPEED)
 
     def set_player_1(self):
         for seg in self.player:

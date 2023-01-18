@@ -12,5 +12,48 @@ class Ball(Turtle):
         self.setheading(random.choice(INITIAL_RANDOM_MOVEMENT))
     
     def move(self):
-        self.forward(3)
+        self.forward(4.5)
 
+    def wall_colission(self):
+        if self.heading() == 45:
+            self.setheading(315)
+        elif self.heading() == 135:
+            self.setheading(225)
+        elif self.heading() == 315:
+            self.setheading(45)
+        elif self.heading() == 225:
+            self.setheading(135)
+
+    def mid_player_colission(self):
+        if self.heading() == 45:
+            self.setheading(135)
+        elif self.heading() == 135:
+            self.setheading(45)
+        elif self.heading() == 315:
+            self.setheading(225)
+        elif self.heading() == 225:
+            self.setheading(315)
+
+    def topside_player_collission(self):
+        if self.heading() == 45:
+            self.setheading(135)
+        elif self.heading() == 135:
+            self.setheading(45)
+        elif self.heading() == 315:
+            self.setheading(135)
+        elif self.heading() == 225:
+            self.setheading(45)
+
+    def botside_player_collission(self):
+        if self.heading() == 45:
+            self.setheading(225)
+        elif self.heading() == 135:
+            self.setheading(315)
+        elif self.heading() == 315:
+            self.setheading(225)
+        elif self.heading() == 225:
+            self.setheading(315)
+
+    def goal(self):
+        self.home()
+        self.setheading(random.choice(INITIAL_RANDOM_MOVEMENT))

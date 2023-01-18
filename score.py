@@ -12,15 +12,15 @@ class Score(Turtle):
             self.set_score_1()
         elif self.name == "Score_2":
             self.set_score_2()
-        
+        self.write(arg=self.score, align="center", font=("calibri",50,"bold"))
 
     def increase(self):
+        self.clear()
         self.score += 1
+        self.write(arg=self.score, align="center", font=("calibri",50,"bold"))
         
     def set_score_1(self):
         self.goto(x = -130, y = 300)
-        self.write(arg=self.score, align="center", font=("calibri",50,"bold"))
-
+        
     def set_score_2(self):
         self.goto(x = 130, y = 300)
-        self.write(arg=self.score, align="center", font=("calibri",50,"bold"))
